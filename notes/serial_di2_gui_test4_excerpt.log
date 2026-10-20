@@ -1,0 +1,55 @@
+# GEOID CC700 Pro - Di2 BLE page-turn, final hardware test (excerpt)
+# Source: serial_di2_gui_test4_20261019.log
+# Removed: WiFi SSID/BSSID, cloud token values, device serial number,
+#          Di2 BLE name, and unrelated heartbeat/scan lines.
+# Only page-turn-chain lines are kept; original timestamps are preserved.
+
+# --- single press: 0 -> 1 -> 2 -> 3 ---
+W (638549) CC700P: Ch1Pos=1,Ass=0,Evt=1,Seq=3
+W (638549) CC700P: AntShftBtnSndCallBack:ShftType=2,Pos=1,Assign=0,Event=1
+W (638550) CC700P: Get ShftBtnEvent:2-1-0-1
+I (638554) CC700P: Recv GUI event, src:0 type:75
+I (643888) CC700P: PageId:0 Dial Layout[28]:9
+W (647115) CC700P: YES, RidePageSwitch called by gesture, sLayout.mPageId:1 !
+I (647119) CC700P: PageId:1 Dial Layout[13]:5
+W (650805) CC700P: YES, RidePageSwitch called by gesture, sLayout.mPageId:2 !
+I (650808) CC700P: PageId:2 Dial Layout[22]:7
+W (655826) CC700P: Get ShftBtnEvent:2-1-0-1
+I (655973) CC700P: Recv GUI event, src:0 type:75
+W (655974) CC700P: YES, RidePageSwitch called by gesture, sLayout.mPageId:3 !
+I (655978) CC700P: PageId:3 Dial Layout[13]:5
+
+# --- single press continues: 3 -> 0 -> 1 -> 2 -> 3 ---
+W (658561) CC700P: Get ShftBtnEvent:2-1-0-1
+I (658563) CC700P: Recv GUI event, src:0 type:75
+W (658564) CC700P: YES, RidePageSwitch called by gesture, sLayout.mPageId:0 !
+I (658568) CC700P: PageId:0 Dial Layout[28]:9
+W (660569) CC700P: Get ShftBtnEvent:2-1-0-1
+I (660574) CC700P: Recv GUI event, src:0 type:75
+W (660575) CC700P: YES, RidePageSwitch called by gesture, sLayout.mPageId:1 !
+I (660579) CC700P: PageId:1 Dial Layout[13]:5
+
+# --- double press: 3 -> 2 -> 1 ---
+W (666539) CC700P: Ch1Pos=1,Ass=0,Evt=2,Seq=9
+W (666540) CC700P: AntShftBtnSndCallBack:ShftType=2,Pos=1,Assign=0,Event=2
+W (666540) CC700P: Get ShftBtnEvent:2-1-0-2
+I (666542) CC700P: Recv GUI event, src:0 type:153
+W (666543) CC700P: YES, RidePageSwitch called by gesture, sLayout.mPageId:2 !
+I (666547) CC700P: PageId:2 Dial Layout[22]:7
+W (669110) CC700P: Ch1Pos=1,Ass=0,Evt=2,Seq=12
+W (669110) CC700P: AntShftBtnSndCallBack:ShftType=2,Pos=1,Assign=0,Event=2
+W (669110) CC700P: Get ShftBtnEvent:2-1-0-2
+I (669113) CC700P: Recv GUI event, src:0 type:153
+W (669114) CC700P: YES, RidePageSwitch called by gesture, sLayout.mPageId:1 !
+I (669118) CC700P: PageId:1 Dial Layout[13]:5
+
+# --- release: no GUI message, no page change ---
+W (667824) CC700P: Ch1Pos=1,Ass=0,Evt=0,Seq=11
+W (667824) CC700P: AntShftBtnSndCallBack:ShftType=2,Pos=1,Assign=0,Event=0
+W (667824) CC700P: Get ShftBtnEvent:2-1-0-0
+
+# Final capture summary (from the original run):
+# - Guru / panic / LoadProhibited: 0
+# - RidePageSwitch called by gesture: 10
+# - Di2-injected GUI messages: src:0 type:75 x6, src:0 type:153 x3
+# - normal shifting data continued to update after the page-turn tests

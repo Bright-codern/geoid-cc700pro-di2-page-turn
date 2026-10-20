@@ -1,0 +1,6 @@
+* text=auto
+*.md text eol=lf
+*.py text eol=lf
+*.java text eol=lf
+*.log text eol=lf
+*.bin binary

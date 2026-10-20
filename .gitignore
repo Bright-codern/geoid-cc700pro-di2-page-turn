@@ -1,0 +1,22 @@
+# Local firmware images and backups (never commit vendor binaries or NVS)
+*.bin
+*.elf
+*.gbf
+dumps/
+extracts/
+ghidra/
+ghidra_*/
+
+# Generated analysis output
+*.log
+!notes/serial_di2_gui_test4_excerpt.log
+!docs/*.log
+
+# Python / editor noise
+__pycache__/
+*.pyc
+.venv/
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini

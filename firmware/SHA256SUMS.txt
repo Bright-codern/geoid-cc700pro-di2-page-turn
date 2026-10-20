@@ -1,0 +1,1 @@
+abaff7dd921aa6b3a64986c05f988f746d1d658084d72f370c8b4214c859bc03  ota_0_app_di2_gui.bin
